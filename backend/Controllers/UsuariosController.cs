@@ -1,10 +1,12 @@
 using backend.connection;
 using backend.entidades;
 using backend.servicios;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers;
 
+[EnableCors("CorsDev")] //ESTE PERMITE LA ENTRA DE DE HTTP DES DE FUERA AÑANIENDO EL cors de Program.cs
 [ApiController]
 [Route("api/[controller]")]
 public class UsuariosController : ControllerBase
