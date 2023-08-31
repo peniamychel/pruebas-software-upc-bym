@@ -64,4 +64,35 @@ public class ProductoController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+
+    [HttpDelete]
+    [Route("DeleteProductoById")]
+    public IActionResult DeleteProductoById([FromQuery] int id)
+    {
+        try
+        {
+            ProductoServicios.EliminarPorIdProducto(id);
+            return Ok("Producto eliminado correctamente");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+    
+    [HttpPatch]
+    [Route("UpdateProducto")]
+    public IActionResult UpdateProducto(Producto producto)
+    {
+        try
+        {
+            ProductoServicios.ActualizarProducto(producto);
+            return Ok("Producto actualizado correctamente");
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
 }

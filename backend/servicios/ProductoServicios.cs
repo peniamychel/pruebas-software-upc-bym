@@ -37,8 +37,26 @@ namespace backend.servicios
             return result;
         }
 
-        //ACTUALIZAR SEGUN ID con procedimento almacenado 
-        
+        //eliminar SEGUN ID con procedimento almacenado 
+        public static void EliminarPorIdProducto(int id)
+        {
+            const string storedProcedure = "EliminarProducto";
 
+            var parameters = new DynamicParameters();
+            parameters.Add("@Id", id, DbType.Int32);
+            BDManager.GetInstance.ProcedureDeleteDataWithId(storedProcedure, parameters);
+        }
+
+        //ACTUALIZAR SEGUN ID con procedimento almacenado 
+        public static int ActualizarProducto(Producto producto)
+        {   const string storedProcedure = "ActualizarProducto";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@nombre", producto.Nombre, DbType.String);
+            parameters.Add("@id_Categoria", producto.IdCategoria, DbType.Int32);
+            parameters.Add("@id", producto.Id, DbType.Int32);
+            var result = BDManager.GetInstance.ProcedureUpdateData(storedProcedure, parameters);
+            return result;
+        }
     }
 }

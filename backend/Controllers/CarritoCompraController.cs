@@ -95,4 +95,35 @@ public class CarritoCompraController : ControllerBase
         }
     }
 
+
+    [HttpPost]
+    [Route("InsertCarritoCompraReturnId")]
+    public IActionResult InsertCarritoCompraReturnId(CarritoCompra carritoCompra)
+    {
+        try
+        {
+            var result = CarritoCompraServicios.InsertCarritoCompraReturnId(carritoCompra);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
+    [HttpGet]
+    [Route("GetCarritoCompraEnd")]
+    public IActionResult GetCarritoCompraEnd()
+    {
+        try
+        {
+            var result = CarritoCompraServicios.GetCarritoCompraEnd<CarritoCompra>();
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
 }

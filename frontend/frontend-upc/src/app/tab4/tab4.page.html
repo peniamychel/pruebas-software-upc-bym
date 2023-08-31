@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>tab4</ion-title>
+    <ion-title>Carrito Compra</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,5 +11,62 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 4 page"></app-explore-container>
+  <ion-item>
+    <ion-input id="userName" type="text" placeholder="Id Usuario" [(ngModel)]="idUsuario"></ion-input>
+    <!-- <ion-input id="password" type="text" placeholder="Ingrese la contresenia" [(ngModel)]="password"></ion-input> -->
+  </ion-item>
+
+  <ion-item>
+
+    <ion-list>
+      <ion-label > <h1> Id Producto</h1></ion-label>
+      <ion-item>
+        <ion-input id="userName" type="text" [(ngModel)]="idProd1"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input id="userName" type="text" [(ngModel)]="idProd2"></ion-input>
+      </ion-item>
+    
+
+    </ion-list>
+
+    <ion-list>
+      <ion-label > <h1> Candidad del producto</h1></ion-label>
+      <ion-item>
+        <ion-input  id="userName" type="text" [(ngModel)]="cat1"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input  id="userName" type="text" [(ngModel)]="cat2"></ion-input>
+      </ion-item>
+    
+
+    </ion-list>
+
+
+    <br>
+    <ion-datetime display-format="HH:mm" [(ngModel)]="horaSeleccionada">
+      <span>Select la fecha</span>
+    </ion-datetime>
+    <ion-button id="addUsuario" (click)="addCarritoCompra()">Confirmar Compra</ion-button>
+  </ion-item>
+  <br>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listaCarritoCompra">
+      <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+          <ion-label >{{item.fecha}}</ion-label>
+        </ion-col>
+        <ion-col col-4>
+          <ion-label >{{item.id}}</ion-label>
+        </ion-col>
+      </ion-row>
+      
+      <!-- <b>Nombre</b>: {{item.nombreCompleto}}, <b>User Name</b>: {{item.userName}}, <b> Contrasenia</b>: {{item.password}} -->
+    </ion-item>
+
+  </ion-list>
+
 </ion-content>

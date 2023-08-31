@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>tab6</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">tab6</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-input id="nombre" type="text" placeholder="Id Usuario" [(ngModel)]="idUsuario"></ion-input>
+    <ion-input id="eada" type="text" placeholder="IdNinio" [(ngModel)]="idNinio"></ion-input>
+    <br>
+    <ion-button id="addUsuario" (click)="addDejaEnGuarderia()">Registro Deja En Guarderia</ion-button>
+  </ion-item>
+  <br>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listaDejaEnGuarderia">
+      <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+          <ion-label >{{item.idUsuario}}</ion-label>
+        </ion-col>
+        <ion-col col-4>
+          <ion-label >{{item.idNinio}}</ion-label>
+        </ion-col>
+        <ion-col col-4>
+          <ion-label >{{item.horaEntrada}}</ion-label>
+        </ion-col>
+      </ion-row>
+      
+      <!-- <b>Nombre</b>: {{item.nombreCompleto}}, <b>User Name</b>: {{item.userName}}, <b> Contrasenia</b>: {{item.password}} -->
+    </ion-item>
+
+  </ion-list>
+</ion-content>

@@ -65,5 +65,31 @@ namespace backend.servicios
             BDManager.GetInstance.ProcedureDeleteDataWithId(storedProcedure, parameters);
         }
 
+        //Actualizar datos con procedimiento almacenado
+        public static int InsertCarritoCompraReturnId(CarritoCompra carritoCompra)
+        {
+            const string sql = "InsertCarritoCompraReturnId2";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@fecha", carritoCompra.Fecha, DbType.Date);
+            parameters.Add("@IdUsuario", carritoCompra.IdUsuario, DbType.Int64);
+            // parameters.Get<int>("@IdCarrito");
+
+            // var result = BDManager.GetInstance.SetData(sql, parameters);
+            var result = BDManager.GetInstance.ProcedureInsertData(sql, parameters);
+            return result;
+        }
+
+        public static T GetCarritoCompraEnd<T>()
+        {
+            const string sql = "SELECT TOP 1 * FROM CARRITO_COMPRA ORDER BY ID DESC";
+            // const string sql = "SELECT * FROM CARRITO_COMPRA WHERE ID = (SELECT MAX(ID) FROM CARRITO_COMPRA)";
+
+
+            var result = BDManager.GetInstance.GetDataWithParameters2<T>(sql);
+
+            return result.FirstOrDefault();
+        }
+
     }
 }

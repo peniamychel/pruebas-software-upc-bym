@@ -133,7 +133,15 @@ namespace backend.connection
             return result;
         }
 
+
+        public IEnumerable<T> GetDataWithParameters2<T>(string sql)
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            connection.Open();
+            DefaultTypeMap.MatchNamesWithUnderscores = true;
+            return connection.Query<T>(sql);
+        }
     }
 
-
+    
 }

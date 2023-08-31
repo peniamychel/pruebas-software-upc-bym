@@ -8,7 +8,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //ESTO SE HACER PARA LA SEGURIDAD Y QUE LOS METOS HTTP PUEDAN SER ESCUCHADOS
-builder.Services.AddCors(option => option.AddPolicy("CorsDev", builder => builder.AllowAnyMethod().AllowAnyOrigin().WithMethods("POST","GET").AllowAnyHeader()));
+builder.Services.AddCors(option => option.AddPolicy("CorsDev",
+    builder => builder
+        .AllowAnyMethod()
+        .AllowAnyOrigin()
+        .WithMethods("POST","GET","PUT","DELETE","PATCH")
+        .AllowAnyHeader()));
 
 var app = builder.Build();
 

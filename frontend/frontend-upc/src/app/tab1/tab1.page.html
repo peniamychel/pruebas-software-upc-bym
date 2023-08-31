@@ -14,16 +14,28 @@
   </ion-header>
   
   <ion-item>
-    <ion-input type="text" placeholder="Ingrese el Nombre Completo" [(ngModel)]="nombreCompleto"></ion-input>
-    <ion-input type="text" placeholder="Ingrese su User name" [(ngModel)]="userName"></ion-input>
-    <ion-input type="text" placeholder="Ingrese la contresenia" [(ngModel)]="password"></ion-input>
+    <ion-input id="nombreCompleto" type="text" placeholder="Ingrese el Nombre Completo" [(ngModel)]="nombreCompleto"></ion-input>
+    <ion-input id="userName" type="text" placeholder="Ingrese su User name" [(ngModel)]="userName"></ion-input>
+    <ion-input id="password" type="text" placeholder="Ingrese la contresenia" [(ngModel)]="password"></ion-input>
     <br>
-    <ion-button (click)="addUsuario">Agregar Usuario</ion-button>
+    <ion-button id="addUsuario" (click)="addUsuario()">Agregar Usuario</ion-button>
   </ion-item>
   <br>
   <ion-list>
     <ion-item *ngFor="let item of listaUsuarios">
-      <b>Nombre</b>: {{item.nombreCompleto}}, <b>User Name</b>: {{item.userName}}, <b> Contrasenia</b>: {{item.password}}
+      <ion-row style="border-bottom: groove;">
+        <ion-col col-4>
+          <ion-label >{{item.nombreCompleto}}</ion-label>
+        </ion-col>
+        <ion-col col-4>
+          <ion-label >{{item.userName}}</ion-label>
+        </ion-col>
+        <ion-col col-4>
+          <ion-label >{{item.password}}</ion-label>
+        </ion-col>
+      </ion-row>
+      
+      <!-- <b>Nombre</b>: {{item.nombreCompleto}}, <b>User Name</b>: {{item.userName}}, <b> Contrasenia</b>: {{item.password}} -->
     </ion-item>
 
   </ion-list>

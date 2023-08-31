@@ -13,6 +13,13 @@ namespace backend.servicios
             return BDManager.GetInstance.GetData<T>(sql);//Dapper
         }
 
+        //obtener los 10 ultimos
+        public static IEnumerable<T> ObtenerTodoTopDiez<T>()
+        {
+            const string sql = "SELECT TOP 10 * FROM usuarios ORDER BY ID DESC";
+            return BDManager.GetInstance.GetData<T>(sql);//Dapper
+        }
+
         public static T ObtenerById<T>(int id)
         {
             const string sql = "select * from usuarios where ID = @Id and estado_registro = 1";

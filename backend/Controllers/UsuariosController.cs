@@ -37,6 +37,21 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpGet]
+    [Route("GetTop10Usuarios")]
+    public IActionResult GetTop10Usuarios()
+    {
+        try
+        {
+            var result = UsuariosServicios.ObtenerTodoTopDiez<Usuarios>();
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
+    [HttpGet]
     [Route("GetUsuariosById")]
     public IActionResult GetUsuariosById([FromQuery] int id)
     {

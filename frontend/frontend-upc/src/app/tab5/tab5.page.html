@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registoro Niño</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registoro Niño</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-input
+      id="nombre"
+      type="text"
+      placeholder="Ingrese el Nombre del niño"
+      [(ngModel)]="nombre"
+    ></ion-input>
+    <ion-input
+      id="eada"
+      type="text"
+      placeholder="Ingrese la edad del niño"
+      [(ngModel)]="edad"
+    ></ion-input>
+    <ion-list>
+      <ion-item>
+        <ion-select
+          aria-label="Fruit"
+          interface="popover"
+          placeholder="Seleccione Sexo"
+          [(ngModel)]="sexo"
+        >
+          <ion-select-option value="Femenino">Femenino</ion-select-option>
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <br />
+    <ion-button id="addUsuario" (click)="addNinio()"
+      >Agregar Usuario</ion-button
+    >
+  </ion-item>
+  <br />
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-start" style="border-bottom: groove">
+      <ion-col size="2"> 
+        <ion-label>
+          <h1>Nombre</h1>
+        </ion-label>
+        </ion-col>
+      <ion-col size="1">
+        <ion-label>
+          <h1>Edad</h1>
+        </ion-label>
+      </ion-col>
+      <ion-col size="1">
+        <ion-label>
+          <h1>Sexo</h1>
+        </ion-label>
+      </ion-col>
+      <ion-col size="3">
+        <ion-label>
+          <h1>Acciones</h1>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-start" *ngFor="let item of listaNinios" style="border-bottom: ridge ">
+      <ion-col size="2"> {{item.nombre}} </ion-col>
+      <ion-col size="1"> {{item.edad}} </ion-col>
+      <ion-col size="1"> {{item.sexo}} </ion-col>
+      <ion-col size="3">
+        <ion-button size="small" (click)="darDatos(item.id)">Datos</ion-button>
+        <ion-button color="warning" (click)="updateById(item.id)" size="small">Editar</ion-button>
+        <ion-button color="danger" (click)="deleteById(item.id)" size="small">Eliminar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
