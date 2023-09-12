@@ -11,35 +11,33 @@
     </ion-toolbar>
   </ion-header>
   <ion-item>
-    <ion-input
-      id="nombre"
+    <ion-input id="nombreNinio"
       type="text"
       placeholder="Ingrese el Nombre del niño"
       [(ngModel)]="nombre"
     ></ion-input>
-    <ion-input
-      id="eada"
+    <ion-input id=""
+      id="edadNinio"
       type="text"
       placeholder="Ingrese la edad del niño"
       [(ngModel)]="edad"
     ></ion-input>
     <ion-list>
       <ion-item>
-        <ion-select
+        <ion-select id="sexoNinio"
           aria-label="Fruit"
           interface="popover"
           placeholder="Seleccione Sexo"
           [(ngModel)]="sexo"
         >
-          <ion-select-option value="Femenino">Femenino</ion-select-option>
-          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select-option id="femenino" value="Femenino">Femenino</ion-select-option>
+          <ion-select-option id="masculino" value="Masculino">Masculino</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <br />
-    <ion-button id="addUsuario" (click)="addNinio()"
-      >Agregar Usuario</ion-button
-    >
+    <ion-button id="addNinio" (click)="addNinio()"
+      >Agregar Ninio</ion-button>
   </ion-item>
   <br />
 
@@ -71,11 +69,13 @@
       <ion-col size="1"> {{item.edad}} </ion-col>
       <ion-col size="1"> {{item.sexo}} </ion-col>
       <ion-col size="3">
-        <ion-button size="small" (click)="darDatos(item.id)">Datos</ion-button>
-        <ion-button color="warning" (click)="updateById(item.id)" size="small">Editar</ion-button>
-        <ion-button color="danger" (click)="deleteById(item.id)" size="small">Eliminar</ion-button>
+        <ion-button size="small" (click)="darDatos(item.id+'')">Datos</ion-button>
+        <ion-button color="warning" (click)="updateById(item.id)" size="small" [routerLink]="['/editer-ninio', item.id]">Editar</ion-button>
+        <ion-button color="danger" (click)="deleteById(item.id)" size="small" >Eliminar</ion-button>
+        <ion-button color="danger" (click)="abrirModal(item.id)" size="small" >MODALx</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
+  
 
 </ion-content>

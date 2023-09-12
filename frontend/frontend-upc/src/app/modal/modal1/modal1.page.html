@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Modificar Datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Editar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Text input" placeholder= {{nombre}} ></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Nombre: " placeholder [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Edad: " placeholder [(ngModel)]="edad"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Sexo: " placeholder [(ngModel)]="sexo"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+
+
+  <ion-button (click)="botonCancelar()" color="primary"  size="small" >Cancelar</ion-button>
+  <ion-button (click)="actualizarDatos()" color="success"  size="small" >Aceptar</ion-button>
+
+</ion-content>

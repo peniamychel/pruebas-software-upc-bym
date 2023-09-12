@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'editer-ninio',
     loadChildren: () => import('./editer-ninio/editer-ninio.module').then( m => m.EditerNinioPageModule)
+  },
+  {
+    path: 'editer-ninio/:id',
+    loadChildren: () => import('./editer-ninio/editer-ninio.module').then( m => m.EditerNinioPageModule)
   }
 ];
 @NgModule({

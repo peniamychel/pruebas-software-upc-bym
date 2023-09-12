@@ -91,7 +91,7 @@ public class NinioController : ControllerBase
         try
         {
             NinioServicios.ActualizarNinio(ninio);
-            return Ok("Usuario actualizado correctamente");
+            return Ok();
         }
         catch (Exception ex)
         {

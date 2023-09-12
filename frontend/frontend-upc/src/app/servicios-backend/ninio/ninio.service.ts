@@ -39,7 +39,7 @@ export class NinioService {
       .pipe();
   }
 
-  public getObtenerById(id: number): Observable<HttpResponse<any>> {
+  public getObtenerById(id: string): Observable<HttpResponse<any>> {
     var parametros = new HttpParams();
     parametros = parametros.set('id', id);
 
@@ -62,15 +62,9 @@ export class NinioService {
       .pipe();
   }
 
-  public UpdateById(id: number): Observable<any> {
-    var parametros = new HttpParams();
-    parametros = parametros.set('id', id);
-
-    // console.log(parametros);
-    //const url = `${this.DELETE_BY_ID}`;
-    
+  public UpdateById(entidad: Ninio): Observable<any> {
     return this.httpClient
-      .get<any>(this.DELETE_BY_ID, {params:parametros, observe: 'response' })
+      .patch<any>(this.UPDATE_BY_ID, entidad, { observe: 'response'})
       .pipe();
   }
 

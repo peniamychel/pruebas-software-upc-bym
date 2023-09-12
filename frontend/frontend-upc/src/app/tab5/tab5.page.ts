@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Ninio } from '../entidades/ninio';
 import { NinioService } from '../servicios-backend/ninio/ninio.service';
 import { HttpResponse } from '@angular/common/http';
+import { ModalController } from '@ionic/angular';
+import { Modal1Page } from '../modal/modal1/modal1.page';
 
 @Component({
   selector: 'app-tab5',
@@ -15,7 +17,22 @@ export class Tab5Page implements OnInit {
 
   public listaNinios: Ninio[] = [];
 
-  constructor(private ninioService: NinioService) {
+  constructor(private ninioService: NinioService, private modalCtrl: ModalController) {
+    this.getNinios();
+  }
+
+  async abrirModal(id:any){
+    const modal = this.modalCtrl.create({
+      component: Modal1Page,
+      componentProps:{
+        idNinio: id
+      }
+    });
+    
+    (await modal).present();
+     // Llama a la función para obtener los datos actualizados
+    const ddd = (await (await modal).onDidDismiss()).data;
+    console.log(ddd);
     this.getNinios();
   }
 
@@ -71,7 +88,7 @@ export class Tab5Page implements OnInit {
 
   }
 
-  public darDatos(id: number){
+  public darDatos(id: string){
     console.log(id);
     this.ninioService.getObtenerById(id).subscribe({
       next: (response: HttpResponse<any>) => {
@@ -93,8 +110,8 @@ export class Tab5Page implements OnInit {
     console.log(id);
     this.ninioService.deleteById(id).subscribe({
       next: (response: any) => {
-        // console.log(response);
-        alert(JSON.stringify(response.body));
+        console.log(response);
+        // alert(JSON.stringify(response.body));
         this.getNinios();
       },
       error: (error: any) => {
@@ -109,26 +126,13 @@ export class Tab5Page implements OnInit {
 
   }
   public updateById(id: number){
-    console.log(id);
-    this.ninioService.deleteById(id).subscribe({
-      next: (response: any) => {
-        // console.log(response);
-        alert(JSON.stringify(response.body));
-        this.getNinios();
-      },
-      error: (error: any) => {
-        // falla
-        console.log(error);
-      },
-      complete: () => {
-        // termino todo
-        console.log('Finished... - this.deleteById()');
-      },
-    });
+    // console.log(id);
+    
 
   }
 
   ngOnInit() {
+
   }
 
 }
