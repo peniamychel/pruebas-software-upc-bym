@@ -62,6 +62,38 @@ BEGIN
     WHERE [ID] = @Id;
     SELECT @@ROWCOUNT;
 END
+
+--*****************Buscar segun usuario y contrasenia retorna id *******
+CREATE PROCEDURE BuscarUsuarioContrasenia
+    @UserName VARCHAR(40),
+    @Password VARCHAR(100),
+    @ID INT OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT @ID = ID
+    FROM USUARIOS
+    WHERE USER_NAME = @UserName AND PASSWORD = @Password;
+
+    IF (@@ROWCOUNT = 0)
+        SET @ID = 0;
+END
+
+--********************* Buscar segun nombre y contrasenia y devuelve todos los sus datos *****
+CREATE PROCEDURE SearchUserByUserAndPass
+    @UserName VARCHAR(40),
+    @Password VARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM USUARIOS
+    WHERE USER_NAME = @UserName AND PASSWORD = @Password AND ESTADO_REGISTRO = 1;
+END
+
+
 --****************** fin Tabla usuarios **********************
 
 --**************** inicio tabla DetalleCarrito *****************
