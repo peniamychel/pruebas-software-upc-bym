@@ -104,5 +104,7 @@ namespace backend.servicios
             var result = BDManager.GetInstance.ProcedureUpdateData(storedProcedure, parameters);
             return result;
         }
+
+        
     }
 }

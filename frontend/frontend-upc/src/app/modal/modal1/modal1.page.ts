@@ -59,16 +59,18 @@ export class Modal1Page implements OnInit {
     this.ninioService.UpdateById(this.ninio).subscribe({
       next: (response: HttpResponse<any>)=> {
         // console.log(response.body);
+        aux = true;
+        this.modalCtrl.dismiss(aux);
       },
       error: (error: any) => {
         console.log(error);
       },
       complete: ()=> {
-        console.log('Finished...  - this.addNinios :)');
-        aux = true;
+        console.log('Finished...  - this.addNinios :)......');
+        // aux = true;
       },
     });
-    this.modalCtrl.dismiss(aux);
+    // this.modalCtrl.dismiss(aux);
   }
 
 }
