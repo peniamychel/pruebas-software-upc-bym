@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Kp5XX85Me8VQkvdztkFXchjN7MDE9wrr/4V3B7PCq4GlM5tHAU5uIEb2OIZHznqUntxPRYS5wR7iDQUnUFI+fw==",
+  "dgSpecHash": "0kS/hQIjGLu1hLVBxhUTVq2s3etoXIbgQAzaFh1Lkfi13+COVq+mD40yAZe2Z5Fegh2DQBYGjNr4tmi9j1WjhA==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Documents\\GitHub\\pruebas-software-upc-bym\\backend\\backend.csproj",
   "expectedPackageFiles": [
@@ -53,5 +53,16 @@
     "C:\\Users\\USER\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Data.SqlClient' 4.8.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }
