@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8EAe0ypwO2o+n9lLtPQMFFOixIiId9vRlZ2iUy3VI1/1JH2fsqBE4EpFpx2zYtJWCfDsx7xPCJUbJrWUEEOJ1Q==",
+  "dgSpecHash": "MzDWfnuCxjNF1UXRoglliDr9mPepRhxaFPZD2JEpkJogfitbJtRxA1Gj7o1ZSo8J7cf7/gLQyS3ODT6QjtIE/g==",
   "success": true,
-  "projectFilePath": "c:\\Users\\USER\\Documents\\GitHub\\pruebas-software-upc-bym\\backend-unit-test\\backend-unit-test.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Documents\\GitHub\\pruebas-software-upc-bym\\backend-unit-test\\backend-unit-test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512",

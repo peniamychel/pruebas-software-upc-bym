@@ -116,9 +116,9 @@ public class UsuarioAuthenticationController : ControllerBase
 
     }
 
-    [HttpPost]
+    [HttpGet]
     [Route("pruebadetoken")]
-    public IActionResult pruebaDeToken([FromQuery] string Intoken)
+    public IActionResult pruebaDeToken()
     {
         var identity = HttpContext.User.Identity as ClaimsIdentity;
         var rToken = Jwt.validarToken(identity);
